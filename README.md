@@ -1,4 +1,4 @@
-## 2023 Data Structure Class
+## 2023 Data Structures Class
 
 - Original hands-on coding are written in C++ following the 2023 syllabus, however Python version has been added as well.
 - This repo serves as an archive. Feel free to use it to brush up on your Data Structure skills. 
