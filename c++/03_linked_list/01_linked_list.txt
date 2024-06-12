@@ -1,0 +1,53 @@
+A linked list	: a list where nodes are linked together
+Node			: value + pointer
+
+Linked list vs. vectors :
+- Vector elements are stored adjacent to each other in memory, linked list are not bound by this requirement.
+- Vector elements can be retrieved via index value, a linked list has "nodes".
+- Linked list nodes, once allocated in memory, will stay in the same spot = solid and safe to be pointed at, useful for custom memory allocation. Vectors are dynamic and will reallocate spot in memory as it's resized (all contents will be copied to a new block of memory #rippointer). 
+
+----------
+
+linked list
+
+head					tail
+ |						 | 
+
+(1)	-->	(2)	-->	(3)	-->	(4)
+
+
+linked list as an unordered map :
+
+head:{	value	: 1,
+		next	: {	value : 2,
+					next :{	value : 3,
+							next :{	value : 4
+									next : nullptr
+							}
+					}	
+		}
+};
+
+----------
+
+When to use linked list or array ? Consider Big-O !
+
+Linked list :
+- Add a new node at tail 			: O(1) 
+- Remove a node at tail 			: O(n)  --iterate through head, setting pointer to a node that's pointing to the new tail.
+- Add a new node at head 			: O(1)
+- Remove a node at head 			: O(1)
+- Add a new node at random order 	: O(n) --iterate through head
+- Remove a node at random order 	: O(n) --iterate through head
+
+
+Linked list vs array :
+
+- Add a new node at tail		: O(1) vs. O(1) --vector by index (unless memory not sufficient, then reallocation O(n) copying)
+- Remove a node at tail			: O(n) vs. O(1) --vector by index (unless memory not sufficient, then reallocation O(n) copying)
+- Add a new node at head 		: O(1) vs. O(n) --vector moves every other element one back, O(n) copying 
+- Remove a node at head			: O(1) vs. O(n) --vector moves every other element one back, O(n) copying 
+- Add a new node at random order: O(n) vs. O(n) --iterate through head/index[0]
+- Remove a node at random order	: O(n) vs. O(n) --iterate through head/index[0]
+- Lookup by index				: O(n) vs. O(1) --vector by index
+- Lookup by value				: O(n) vs. O(n) --both need to iterate through each element
